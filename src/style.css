@@ -1,0 +1,30 @@
+:root {
+    --primary: #fafafa;
+    --secondary: #676767;
+    --tertiary: #e1e1e1;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #212121;
+        --secondary: #fafafa;
+        --tertiary: #404040;
+    }
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+hr {
+    width: 75%;
+    border: none;
+    border-top: 2px solid var(--tertiary);
+    margin: 3% auto;
+}
+
+.hidden { display: none }

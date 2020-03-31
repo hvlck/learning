@@ -3,14 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <title>Override Default Style Options Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <h1>Override Default Styles</h1>
+        <p id="status" class="hidden"></p>
         <form>
             <input type="checkbox" />
             <label>Force on all pages</label>
             <hr>
             <textarea placeholder="Enter Custom CSS here..."></textarea>
+            <input type="button" value="Update" />
         </form>
+        <hr>
+        <form>
+            <input type="button" value="Clear All Data" />
+        </form>
+        <script src="update-options.js"></script>
     </body>
 </html>
