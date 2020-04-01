@@ -7,5 +7,6 @@ Currently a work in progress.
 ## Roadmap
 
 + CSS Preview Page
-+ Main functionality (storage of CSS and implementation)
++ Useful errors
 + Security
++ Get rid of flashes before stylesheets are updated

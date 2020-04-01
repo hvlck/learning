@@ -7,17 +7,12 @@
     </head>
     <body>
         <h1>Override Default Styles</h1>
-        <p id="status" class="hidden"></p>
+        <p id="status">Stylesheet will only be loaded on pages without any.</p>
         <form>
-            <input type="checkbox" />
+            <input id="always-run" type="checkbox" />
             <label>Force on all pages</label>
-            <hr>
             <textarea placeholder="Enter Custom CSS here..."></textarea>
-            <input type="button" value="Update" />
-        </form>
-        <hr>
-        <form>
-            <input type="button" value="Clear All Data" />
+            <input id="clear-data" type="button" value="Clear All Data" />
         </form>
         <script src="update-options.js"></script>
     </body>
