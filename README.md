@@ -1,12 +1,15 @@
 # override-default-styles
 
-A FireFox WebExtension to override browser default styles.
+A simple FireFox WebExtension to override default browser styles.
 
-Currently a work in progress.
+I don't have any intention of submitting this to FireFox Addons.
 
 ## Roadmap
 
-+ CSS Preview Page
-+ Useful errors
-+ Security
-+ Get rid of flashes before stylesheets are updated
++ ~~CSS Preview Page~~
+
+## Usage
+
+Note: any changes will be applied after the page is reloaded.
+
+Stylesheets can be changed and forced on all pages by navigating to the extension's options page.  All data can also be wiped on the options page.

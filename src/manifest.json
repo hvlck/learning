@@ -9,7 +9,8 @@
             "matches": ["<all_urls>"],
             "js": [
                 "styler.js"
-            ]
+            ],
+            "run_at": "document_start"
         }
     ],
 

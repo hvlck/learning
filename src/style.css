@@ -24,6 +24,42 @@ body {
 
 * { transition: 0.15s linear }
 
+nav {
+    margin: 2% auto;
+    padding: 3px 0;
+    width: 100%;
+}
+
+nav a {
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: "Consolas", monospace;
+    font-size: 12pt;
+    margin: 0.5% 2%;
+    padding: 1px;
+    width: auto;
+    opacity: 0.7;
+    border: none;
+}
+
+nav a:hover {
+    opacity: 1;
+    border: none;
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+nav a:first-of-type { margin: 0.5% 2% 0.5% 0 }
+
+a {
+    color: var(--highlight);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    font-family: "Consolas", monospace;
+    font-size: inherit;
+    margin: auto;
+}
+
 textarea, input[type='button'] {
     display: block;
     padding: 7.5px 10px;
@@ -64,8 +100,8 @@ input[type='checkbox']:focus { box-shadow: 0 0 0 1px var(--highlight) }
 ::-moz-selection {
     background-color: var(--highlight);
     color: var(--primary);
-  }
-  ::selection {
+}
+::selection {
     background-color: var(--highlight);
     color: var(--primary);
-  }
+}

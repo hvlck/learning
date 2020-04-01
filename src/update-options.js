@@ -36,13 +36,14 @@ document.querySelector('textarea').addEventListener('input', function() {
 
 // Clears extension storage
 document.getElementById('clear-data').addEventListener('click', function() {
+    document.getElementById('always-run').checked = false;
+    document.querySelector('textarea').value = '';
     browser.storage.local.clear();
+    displayStatus('Data cleared!')
 });
 
 // Sets extension storage
 function setStorage(data) {
-    document.getElementById('always-run').checked = false;
-    document.querySelector('textarea').value = '';
     browser.storage.local.set(data);
 }
 
