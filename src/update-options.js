@@ -3,11 +3,12 @@
 // Updates storage data in UI and variables
 let data;
 window.addEventListener('load', function() {
-    browser.storage.local.get(['options', 'style']).then(function(response) {
+    browser.storage.local.get(['alwaysOn', 'style']).then(function(response) {
         data = {
-            options: response.options,
-            style: response.style
+            alwaysOn: response.options || false,
+            style: response.style || false
         };
+        console.log(data)
     }).then(function() {
         setContentToStoredData();
     }).catch(function() {
@@ -17,14 +18,14 @@ window.addEventListener('load', function() {
 
 // Automatically updates form elements with related data
 function setContentToStoredData() {
-    document.getElementById('always-run').checked = data.options.alwaysOn;
+    document.getElementById('always-run').checked = data.alwaysOn;
     document.querySelector('textarea').value = data.style;
-    data.options.alwaysOn ? displayStatus('Stylesheet will be loaded on every page.') : displayStatus('Stylesheet will only be loaded on pages without any.');
+    data.alwaysOn ? displayStatus('Stylesheet will be loaded on every page.') : displayStatus('Stylesheet will only be loaded on pages without any.');
 }
 
 // Updates Storage API options data and displays message in UI
 document.getElementById('always-run').addEventListener('change', function(event) {
-    setStorage({ "options": { "alwaysOn": event.target.checked } })
+    setStorage({ "alwaysOn": event.target.checked })
     event.target.checked ? displayStatus('Stylesheet will be loaded on every page.') : displayStatus('Stylesheet will only be loaded on pages without any.');
 });
 
