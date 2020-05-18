@@ -17,7 +17,6 @@ function update() {
             "style": response.style || false,
             "alwaysOn": response.alwaysOn || false
         });
-        console.log(data)
     }).then(() => {
         // Removes all link and style elements if user options specify to do so
         if (data.alwaysOn === true) {

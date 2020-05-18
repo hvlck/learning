@@ -8,7 +8,6 @@ window.addEventListener('load', function() {
             alwaysOn: response.options || false,
             style: response.style || false
         };
-        console.log(data)
     }).then(function() {
         setContentToStoredData();
     }).catch(function() {
