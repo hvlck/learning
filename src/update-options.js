@@ -18,7 +18,9 @@ window.addEventListener('load', function() {
 // Automatically updates form elements with related data
 function setContentToStoredData() {
     document.getElementById('always-run').checked = data.alwaysOn;
-    document.querySelector('textarea').value = data.style;
+    if (data.style) {
+        document.querySelector('textarea').value = data.style;
+    } else { document.querySelector('textarea').value = `` }
     data.alwaysOn ? displayStatus('Stylesheet will be loaded on every page.') : displayStatus('Stylesheet will only be loaded on pages without any.');
 }
 
