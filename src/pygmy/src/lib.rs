@@ -1,11 +1,11 @@
 use std::time::Duration;
+use std::thread::sleep;
 
 #[derive(Debug)]
 pub struct Timer {
 	pub duration_string: String,
-	pub duration: u32,
+	pub duration: u64,
 	pub name: String,
-	pub start_time: String,
 	pub started: bool
 }
 
@@ -25,30 +25,40 @@ impl Timer {
 
 		let name = match args.next() {
 			Some(val) => val,
-			None => String::from("Default")
+			None => String::from("Default Timer (") + &time[..] + ")"
 		};
 
 		if index == 0 {
 			Ok(Timer {
-				duration: time.clone().parse::<u32>().unwrap(),
+				duration: time.clone().parse::<u64>().unwrap(),
 				duration_string: time,
 				name: name,
-				start_time: String::from(""),
 				started: false
 			})
 		} else {
 			Ok(Timer {
-				duration: (time.clone()[..index].parse::<u32>().unwrap() * 60) + 20,
+				duration: (time.clone()[..index].parse::<u64>().unwrap() * 60) + time.clone()[index + 1..].parse::<u64>().unwrap(),
 				duration_string: time,
 				name: name,
-				start_time: String::from(""),
 				started: false
 			})
 		}
 	}
-}
 
-#[cfg(test)]
-mod tests {
-	use super::*;
+	pub fn start(&self) {
+		let sleep_time = self.duration / 10;
+		
+		let mut index = 1;
+
+		println!("Starting timer: {} | (Duration: {}s)", self.name, self.duration);
+		
+		while index < 10 {
+			sleep(Duration::new(sleep_time, 0));
+			println!("{}: {}% ({}s / {}s)", self.name, index * 10, sleep_time * index, self.duration);
+			index += 1;
+		}
+
+		println!("{}: {}% ({}s / {}s)", self.name, index * 10, sleep_time * index, self.duration);
+		println!("Completed timer: {} ({}s).", self.name, self.duration);
+	}
 }

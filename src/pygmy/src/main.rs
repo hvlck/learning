@@ -8,5 +8,6 @@ fn main() {
         eprintln!("Failed to parse arguments: {}", err);
         process::exit(1);
     });
-    
+
+    timer.start();
 }
