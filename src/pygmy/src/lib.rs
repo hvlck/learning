@@ -1,7 +1,8 @@
 use std::time::Duration;
 use std::thread::sleep;
 
-#[derive(Debug)]
+use ansi_term::{Color};
+
 pub struct Timer {
 	pub duration_string: String,
 	pub duration: u64,
@@ -48,17 +49,16 @@ impl Timer {
 	pub fn start(&self) {
 		let sleep_time = self.duration / 10;
 		
+		println!("Starting timer: {} {}", Color::Green.underline().paint(format!("{}", self.name)), Color::Yellow.paint(format!("(Duration: {}s)", self.duration)));
+
 		let mut index = 1;
 
-		println!("Starting timer: {} | (Duration: {}s)", self.name, self.duration);
-		
-		while index < 10 {
+		while index <= 10 {
 			sleep(Duration::new(sleep_time, 0));
-			println!("{}: {}% ({}s / {}s)", self.name, index * 10, sleep_time * index, self.duration);
+			println!("{} {} ({}s / {}s)", Color::Green.underline().paint(format!("{}:", self.name)), Color::Blue.paint(format!("{}%", index * 10)), sleep_time * index, self.duration);
 			index += 1;
 		}
 
-		println!("{}: {}% ({}s / {}s)", self.name, index * 10, sleep_time * index, self.duration);
-		println!("Completed timer: {} ({}s).", self.name, self.duration);
+		println!("{} {} {}.", Color::Red.bold().paint(format!("Completed timer:")), Color::Green.underline().paint(format!("{}", self.name)), Color::Yellow.paint(format!("({}s)", self.duration)));
 	}
 }
