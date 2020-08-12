@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Override Default Style Options Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <h1>Override Default Styles</h1>
+        <nav>
+            <a href="https://github.com/EthanJustice/override-default-styles">Repository</a>
+            <a href="https://github.com/EthanJustice/override-default-styles#readme">Information</a>
+            <a href="https://ethanjustice.github.io/override-default-styles/preview/">Preview Page</a>
+        </nav>
+        <p id="status">Stylesheet will only be loaded on pages without any.</p>
+        <p>Note: Any changes will be applied after a reload.</p>
+        <form>
+            <input id="always-run" type="checkbox" />
+            <label>Force on all pages</label>
+            <textarea placeholder="Nothing set yet.  Enter your CSS here."></textarea>
+            <input id="clear-data" type="button" value="Clear All Data" />
+        </form>
+        <script src="update-options.js"></script>
+    </body>
+</html>
